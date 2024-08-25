@@ -1,0 +1,54 @@
+@import 'prism-theme.css';
+@import 'font-faces.css';
+
+:root {
+  --standard-text: #515161;
+  --global-text: #6693BF;
+  --property-text: #597B75;
+  --func-call-text: #4D699B;
+  --string-text: #6F894E;
+  --background-color: #F2ECBC;
+  --highlight-color: #C7C299;
+
+  font-family: 'JetBrains Mono';
+  color: var(--standard-text);
+  background-color: var(--background-color);
+}
+main {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+
+.punctuation { color: #4E8CA2; }
+.string { color: #6F894E; }
+.function { color: #6693BF; }
+.keyword { color: #C84053; }
+.operator { color: #836F4A; }
+.number { color: #B35B79; }
+.literal-property { color: #77713F; }
+
+.segment {
+  flex: 5;
+  word-wrap: break-word;
+}
+section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 17px;
+}
+.low-top {
+  margin-top: 5px;
+}
+.low-bottom {
+  margin-bottom: 5px;
+}
+.indent {
+  display: block;
+  margin-left: 15px;
+}
+.text-indent {
+  text-indent: 20px;
+}
