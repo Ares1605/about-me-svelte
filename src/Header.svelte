@@ -13,7 +13,7 @@ const changePage = (newPage: string) => {
 </script>
 <header>
   <h1>
-    <Typer cursorStay={true} justify="center">
+    <Typer cursorStay={true}>
       <TextParser text={`About Me - ${page}()`}/>
     </Typer>
   </h1>
@@ -21,8 +21,8 @@ const changePage = (newPage: string) => {
     <TextParser text="const links = ["/>
     <button on:click={() => changePage("Home")}><TextParser text={'"Home",'} /></button>
     <button on:click={() => changePage("Goals")}><TextParser text={'"Goals",'} /></button>
-    <button on:click={() => changePage("My Future")}><TextParser text={'"My Future",'} /></button>
-    <button on:click={() => changePage("My Past")}><TextParser text={'"My Past"'} /></button>
+    <button on:click={() => changePage("My.Future")}><TextParser text={'"My Future",'} /></button>
+    <button on:click={() => changePage("MyPast")}><TextParser text={'"My Past"'} /></button>
     <TextParser text="]"/>
   </nav>
 </header>
@@ -30,6 +30,7 @@ const changePage = (newPage: string) => {
 h1 {
   /* force height even when the letters are not typed yet */
   min-height: 1em;
+  margin-left: calc(50% - 180px);
   line-height: 1;
 }
 header {

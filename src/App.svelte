@@ -7,7 +7,6 @@
   const handlePage = (event: CustomEvent<string>) => {
     page = event.detail;
   }
-  $: console.log(page);
 </script>
 <Header on:page={handlePage} {page} />
 {#if page === "Home"}

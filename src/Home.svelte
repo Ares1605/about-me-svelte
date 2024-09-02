@@ -20,7 +20,7 @@
 
       </div>
     </div>
-    <img class="profile" alt="profile" src="../public/ares-movies.jpg">
+    <img class="profile" alt="profile" src="../public/ares-arcade.jpg">
   </section>
 </main>
 <Footer />
