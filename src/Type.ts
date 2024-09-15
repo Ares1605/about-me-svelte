@@ -56,6 +56,7 @@ export class Type {
     this.invisibleContainer = invisibleContainer;
     this.cursorEle = cursorEle;
     this.cursor = cursor;
+    cursor.hidden = true;
   }
   private killRunOperations() {
     clearTimeout(this.blinkTimeout);

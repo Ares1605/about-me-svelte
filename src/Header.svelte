@@ -13,7 +13,7 @@ const changePage = (newPage: string) => {
 </script>
 <header>
   <h1>
-    <Typer cursorStay={true}>
+    <Typer cursorStay={true} delayMultiplier={2}>
       <TextParser text={`About Me - ${page}()`}/>
     </Typer>
   </h1>

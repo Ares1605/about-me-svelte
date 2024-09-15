@@ -43,7 +43,8 @@ onMount(() => {
       {/if}
     </div>
     <div class="container" style="justify-content: {justify}">
-      <div bind:this={container} class="text"><div class="cursor" bind:this={cursorEle}><Cursor hidden={cursor.hidden} full={cursor.full} blink={cursor.blink} /></div></div>
+      <div bind:this={container} class="text">
+        <div class="cursor" bind:this={cursorEle}><Cursor hidden={cursor.hidden} full={cursor.full} blink={cursor.blink} /></div></div>
     </div>
   </div>
 </div>
@@ -66,7 +67,7 @@ onMount(() => {
   display: none;
 }
 .invisible-container {
-  opacity: 0;
+  opacity: .4;
 }
 .inner {
   position: relative;

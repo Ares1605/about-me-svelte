@@ -7,6 +7,7 @@
   const doBlink = () => {
     hidden = !hidden;
   }
+  $: console.log(hidden);
   $: if (blink) {
     if (blinkingInterval === null) {
       blinkingInterval = setInterval(doBlink, 450);

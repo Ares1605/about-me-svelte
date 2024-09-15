@@ -17,7 +17,7 @@ export class TyperExecutable {
   execContainer: HTMLElement;
   typedMarkup: Set<Node>;
   letters: lettersType = [];
-  dftDelay = 80;
+  dftDelay = 40;
   bkspcDelay = .6; // backspace delay multiplier
 
   constructor(container: HTMLElement, typedMarkup: Set<Node>) {
@@ -126,6 +126,10 @@ export class TyperExecutable {
       searchPhrases(["from", "in"], 1.4);
       if (skip) continue;
 
+      if (letter === "") {
+        changeDelay(i, 2.5);
+        continue;
+      }
       if (letter === letter.toUpperCase()) {
         changeDelay(i, 1.8);
         continue;
@@ -182,12 +186,21 @@ export class TyperExecutable {
 
     for (const node of nodes) {
       const text = this.getNodeText(node);
-      for (let i = 0; i < text.length; i++) {
+      const len = text.length;
+      if (len === 0) {
         letters.push({
           ele: node,
-          letter: processLetter(text[i]),
+          letter: "",
           nextDelay: 0 // default to 0
         });
+      } else {
+        for (let i = 0; i < len; i++) {
+          letters.push({
+            ele: node,
+            letter: processLetter(text[i]),
+            nextDelay: 0 // default to 0
+          });
+        }
       }
     }
     return letters;
@@ -231,7 +244,7 @@ export class TyperExecutable {
       }
     }
     // the for loop goes until the compareWith length, now we will add the rest of the
-    // // compareTo nodes we couldn't get to, onto the differences
+    // compareTo nodes we couldn't get to, onto the differences
     return {
       delNodes: [...cmpTo].slice(cmpWithLen),
       addNodes: [],
@@ -243,6 +256,7 @@ export class TyperExecutable {
     const cmpWith = this.getFilteredNodes(clonedExecCont.childNodes);
     const cmpTo = this.getFilteredNodes(this.typedMarkup);
     const nodesDiff = this.getNodesDifference(cmpWith, cmpTo);
+    console.log(nodesDiff);
 
     let bkspcsPartialNode: partialNodeType = undefined;
     if (nodesDiff.looselyEqualNodeDiff)
@@ -267,6 +281,7 @@ export class TyperExecutable {
 
     this.injectDelays();
     this.injectBkspcs();
+    console.log(this.letters);
     return this.letters;
   }
 }
