@@ -1,47 +1,87 @@
-# Svelte + TS + Vite
+# Svelte Typer - About Me Page
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+This project is a personal "About Me" page built with Svelte and Vite, featuring an impressive typer component that imitates keyboard typing with a cursor effect.
 
-## Recommended IDE Setup
+## Features
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+- Responsive "About Me" page
+- Custom typer component with realistic typing animation
+- Built with Svelte for efficient, reactive UI
+- Vite for fast development and optimized production builds
 
-## Need an official Svelte framework?
+## Typer Component
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+The star of this project is the custom typer component. It simulates typing text with a blinking cursor, creating a dynamic and engaging user experience. Key features include:
 
-## Technical considerations
+- Customizable typing speed
+- Randomizing of typing throughout lines
+- Realistic cursor blink effect
+  
+## Getting Started
 
-**Why use this over SvelteKit?**
+### Prerequisites
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+- Node.js (version 14 or later recommended)
+- npm or yarn
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+### Installation
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+1. Clone the repository:
+   ```
+   git clone https://github.com/Ares1605/about-me-svelte.git
+   ```
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+2. Navigate to the project directory:
+   ```
+   cd about-me-svelte
+   ```
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+3. Install dependencies:
+   ```
+   npm install
+   ```
 
-**Why include `.vscode/extensions.json`?**
+### Development
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+Run the development server:
 
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
 ```
+npm run dev
+```
+
+This will start the development server, usually at `http://localhost:3000`.
+
+### Building for Production
+
+To create a production-ready build:
+
+```
+npm run build
+```
+
+This will generate optimized assets in the `dist` directory.
+
+## Usage
+
+To use the Typer component in your Svelte files:
+
+```svelte
+<script>
+  import Typer from "./Typer.svelte";
+</script>
+<Typer
+  delayMultiplier={.4}
+  justify={"left"}
+  cursorStay={false}
+  cursorBlink={false}
+>
+    text
+</Typer>
+```
+
+Adjust the props as needed:
+- `text`: The text to be typed
+- `delayMultiplier`: Speed multiplier of the typing
+- `justify`: Enforced text justification styling
+- `cusrorStay`: Whether to keep the cursor after the typing is complete
+- `cursorBlink`: Whether the cursor should blink during typing
